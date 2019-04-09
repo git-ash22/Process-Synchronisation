@@ -25,7 +25,7 @@ int main()
 
 	if (sem_id == -1)
 	{
-		printf("Errr");
+		printf("Error");
 	}
 	semctl(sem_id, 0, SETVAL, 1);
 	int *a, *b;
@@ -37,7 +37,7 @@ int main()
 			struct sembuf sem_op;
 			sem_lock(sem_op, sem_id);
 			a = shmat(shmid, 0, 0);
-			printf("Enter a no");
+			printf("Enter a number:");
 			int c;
 			scanf("%d", &c);
 			a[0] = c;
@@ -64,11 +64,11 @@ int main()
 			}
 			if (flag)
 			{
-				printf("\nPrime no\n");
+				printf("\nPrime number\n");
 			}
 			else
 			{
-				printf("\nNot prime\n");
+				printf("\nComposite Number\n");
 			}
 			sem_unlock(sem_op, sem_id);
 		}
